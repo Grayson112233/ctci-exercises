@@ -16,4 +16,4 @@ Exercises from the book Cracking the Coding Interview 6th ed. implemented in C.
 
 ##### Chapter 2
 1. Remove Dups
-2, Return Kth to Last
+2. Return Kth to Last
