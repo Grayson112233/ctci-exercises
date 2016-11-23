@@ -20,3 +20,4 @@ Exercises from the book Cracking the Coding Interview 6th ed. implemented in C.
 3. Delete Middle Node
 4. Parition
 5. Sum Lists
+6. Palindrome
