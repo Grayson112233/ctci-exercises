@@ -40,7 +40,7 @@ Exercises from the book Cracking the Coding Interview 6th ed. implemented in C.
 
 ![alt text][check] 6. Palindrome
 
-![alt text][red_x] 7. Intersection
+![alt text][check] 7. Intersection
 
 ![alt text][check] 8. Loop Detection
 
