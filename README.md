@@ -46,9 +46,9 @@ Exercises from the book Cracking the Coding Interview 6th ed. implemented in C.
 
 ##### Chapter 3: Stacks and Queues
 
-![inc.][red_x] 1. Three In One
+![done][check] 1. Three In One
 
-![inc.][red_x] 2. Stack Min
+![done][check] 2. Stack Min
 
 ![inc.][red_x] 3. Stack of Plates
 
