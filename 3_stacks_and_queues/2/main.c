@@ -12,6 +12,15 @@ struct node {
     struct node *next;
 };
 
+// Creates first node in this stack
+struct node *init_stack(int value) {
+	struct node *head = malloc(sizeof(head));
+	head->value = value;
+	head->min = value;
+	head->next = NULL;
+	return head;
+}
+
 void push(struct node **head, int value) {
     struct node *new = malloc(sizeof(struct node));
     new->value = value;
@@ -30,6 +39,18 @@ int pop(struct node **head) {
 
 int min(struct node *head) {
     return head->min;
+}
+
+int get_min(struct node *head) {
+	return head->min;
+}
+
+int pop(struct node **head) {
+	struct node *new_head = (*head)->next;
+	int value = (*head)->value;
+	free(*head);
+	*head = new_head;
+	return value;
 }
 
 int main() {
