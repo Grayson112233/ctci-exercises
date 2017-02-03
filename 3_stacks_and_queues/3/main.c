@@ -29,43 +29,36 @@ struct substack *init_stack(int value) {
 }
 
 void push(struct substack *head, int value) {
-    while(true) {
-        // Check if current substack has room
-        if(head->left > 0) {
-            printf("Current stack has room\n");
-            // If there is room:
-            // Get to the last node in the list and create a
-            // new node after it.
-            struct node *n = head->head;
-            if(n == NULL) {
-                n = malloc(sizeof(struct node));
-            } else {
-                while(n->next != NULL) {
-                    n = n->next;
-                }
-                n->next = malloc(sizeof(struct node));
-                n = n->next;
-            }
-            n->value = value;
-            n->next = NULL;
-            head->left -= 1;
-            return;
-        } else {
-            printf("Current stack doesn't have room, creating new one.\n");
-            // If there is no more room:
-            // Create a new substack and set its first node with value
-            if(head->next == NULL) {
-                struct substack *n = head->next;
-                n = malloc(sizeof(struct substack));
-                n->next = NULL;
-                n->left = SUBSTACK_SIZE-1;
-                n->head = malloc(sizeof(struct node));
-                n->head->value = value;
-                n->head->next = NULL;
-            }
-            return;
-        }
+
+    // Create new node to insert
+    struct node *new = malloc(sizeof(struct node));
+    new->value = value;
+    new->next = NULL;
+
+    // Navigate to the last substack
+    while(head->next != NULL) {
+        head = head->next;
     }
+
+    // Create a new substack if necessary
+    if(head->left == 0) {
+        struct substack *new_sub = malloc(sizeof(struct substack));
+        new_sub->next = NULL;
+        new_sub->left = SUBSTACK_SIZE-1;
+        new_sub->head = malloc(sizeof(struct node));
+        new_sub->head->next = NULL;
+        new_sub->head->value = value;
+        return;
+    }
+
+    struct node *current_node = head->head;
+    // Get to the last node of the substack
+    while(current_node->next != NULL) {
+        current_node = current_node->next;
+    }
+    current_node->next = malloc(sizeof(struct node));
+    current_node->next->next = NULL;
+    current_node->next->value = value;
 }
 
 int pop(struct substack *stack) {
@@ -104,7 +97,7 @@ int main() {
     push(head, 5);
     printf("Pushing 5\n");
 
-    printf("Pop: %d", pop(head));
+    printf("Pop: %d\n", pop(head));
     printf("Pop: %d", pop(head));
     
 
