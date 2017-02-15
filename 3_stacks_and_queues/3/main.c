@@ -68,12 +68,14 @@ int pop(struct substack *stack) {
     }
     // Get to the last node of this substack
     struct node *n = stack->head;
+    struct node *previous = stack->head;
     while(n->next != NULL) {
+        previous = n;
         n = n->next;
     }
     int value = n->value;
     free(n);
-    n = NULL;
+    previous->next = NULL;
     stack->left += 1;
     // If we just freed the last node in a substack, free
     // that substack as well
@@ -98,8 +100,10 @@ int main() {
     printf("Pushing 5\n");
 
     printf("Pop: %d\n", pop(head));
-    printf("Pop: %d", pop(head));
-    
+    printf("Pop: %d\n", pop(head));
+    printf("Pop: %d\n", pop(head));
+    printf("Pop: %d\n", pop(head));
+    printf("Pop: %d\n", pop(head));
 
     return 0;
 
