@@ -50,10 +50,10 @@ Exercises from the book Cracking the Coding Interview 6th ed. implemented in C.
 
 ![done][check] 2. Stack Min
 
-![done][red_x] 3. Stack of Plates
+![done][check] 3. Stack of Plates
 
-![done][red_x] 4. Queue via Stacks
+![done][check] 4. Queue via Stacks
 
-![done][red_x] 5. Sort Stack
+![done][check] 5. Sort Stack
 
 ![inc.][red_x] 6. Animal Shelter
